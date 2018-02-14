@@ -1,9 +1,12 @@
 $def with (movies)
 	<h4>Welcome to</h4>
 	<h1>Homer's Movie Site</h1>
+	<form action="/" method="post">
+		<input type="text" name="title" />
+		<input type="submit" value='Search!' />
+	</form>
 	<hr>
 	<p>Movie List:</p>
-	<hr>
 	$for movie in movies:
 		<li>
 			<a href="movie/$movie['id']">$movie['title']</a>

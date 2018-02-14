@@ -55,6 +55,14 @@ class index:
 		movies = db.select('movie')
 		return render.index(movies)
 
+	def POST(self):
+
+		# wpy0401
+		data = web.input()
+		condition = r'title like "%' + data.title + r'%"'
+		movies = db.select('movie', where=condition)
+		return render.index(movies)
+
 
 # wpy0301
 class movie:
@@ -67,7 +75,7 @@ class movie:
 
 		# wpy0301
 		condition = 'id=' + movieID
-		print condition		# for debug
+		#print condition		# for debug
 		movie = db.select('movie', where=condition)[0]
 		return render.movie(movie)
 		
